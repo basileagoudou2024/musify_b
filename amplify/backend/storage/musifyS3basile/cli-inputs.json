@@ -1,0 +1,14 @@
+{
+  "resourceName": "musifyS3basile",
+  "policyUUID": "0208a094",
+  "bucketName": "musifybasile2024",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}

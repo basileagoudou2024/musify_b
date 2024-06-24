@@ -1,0 +1,32 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-musifyb-dev-1137a-authRole",
+      "UnauthRoleArn": "arn:aws:iam::381492272245:role/amplify-musifyb-dev-1137a-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::381492272245:role/amplify-musifyb-dev-1137a-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-musifyb-dev-1137a-deployment",
+      "UnauthRoleName": "amplify-musifyb-dev-1137a-unauthRole",
+      "StackName": "amplify-musifyb-dev-1137a",
+      "StackId": "arn:aws:cloudformation:us-east-1:381492272245:stack/amplify-musifyb-dev-1137a/dc4fbb20-3167-11ef-9fb4-0afffb082903",
+      "AmplifyAppId": "dnfwi5t404es"
+    },
+    "categories": {
+      "api": {
+        "musifyb": {}
+      },
+      "function": {
+        "musifybLambda": {
+          "deploymentBucketName": "amplify-musifyb-dev-1137a-deployment",
+          "s3Key": "amplify-builds/musifybLambda-6d34722f746769516836-build.zip"
+        }
+      },
+      "auth": {
+        "musifyb9f91aa5e": {}
+      },
+      "storage": {
+        "musifyS3basile": {}
+      }
+    }
+  }
+}
