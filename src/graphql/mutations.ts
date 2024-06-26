@@ -18,9 +18,10 @@ export const createSong = /* GraphQL */ `mutation CreateSong(
     artist
     duration
     releaseDate
-    username
+    fileUrl
     createdAt
     updatedAt
+    owner
     __typename
   }
 }
@@ -38,9 +39,10 @@ export const updateSong = /* GraphQL */ `mutation UpdateSong(
     artist
     duration
     releaseDate
-    username
+    fileUrl
     createdAt
     updatedAt
+    owner
     __typename
   }
 }
@@ -58,9 +60,10 @@ export const deleteSong = /* GraphQL */ `mutation DeleteSong(
     artist
     duration
     releaseDate
-    username
+    fileUrl
     createdAt
     updatedAt
+    owner
     __typename
   }
 }

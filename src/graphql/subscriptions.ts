@@ -8,16 +8,20 @@ type GeneratedSubscription<InputType, OutputType> = string & {
   __generatedSubscriptionOutput: OutputType;
 };
 
-export const onCreateSong = /* GraphQL */ `subscription OnCreateSong($filter: ModelSubscriptionSongFilterInput) {
-  onCreateSong(filter: $filter) {
+export const onCreateSong = /* GraphQL */ `subscription OnCreateSong(
+  $filter: ModelSubscriptionSongFilterInput
+  $owner: String
+) {
+  onCreateSong(filter: $filter, owner: $owner) {
     id
     title
     artist
     duration
     releaseDate
-    username
+    fileUrl
     createdAt
     updatedAt
+    owner
     __typename
   }
 }
@@ -25,16 +29,20 @@ export const onCreateSong = /* GraphQL */ `subscription OnCreateSong($filter: Mo
   APITypes.OnCreateSongSubscriptionVariables,
   APITypes.OnCreateSongSubscription
 >;
-export const onUpdateSong = /* GraphQL */ `subscription OnUpdateSong($filter: ModelSubscriptionSongFilterInput) {
-  onUpdateSong(filter: $filter) {
+export const onUpdateSong = /* GraphQL */ `subscription OnUpdateSong(
+  $filter: ModelSubscriptionSongFilterInput
+  $owner: String
+) {
+  onUpdateSong(filter: $filter, owner: $owner) {
     id
     title
     artist
     duration
     releaseDate
-    username
+    fileUrl
     createdAt
     updatedAt
+    owner
     __typename
   }
 }
@@ -42,16 +50,20 @@ export const onUpdateSong = /* GraphQL */ `subscription OnUpdateSong($filter: Mo
   APITypes.OnUpdateSongSubscriptionVariables,
   APITypes.OnUpdateSongSubscription
 >;
-export const onDeleteSong = /* GraphQL */ `subscription OnDeleteSong($filter: ModelSubscriptionSongFilterInput) {
-  onDeleteSong(filter: $filter) {
+export const onDeleteSong = /* GraphQL */ `subscription OnDeleteSong(
+  $filter: ModelSubscriptionSongFilterInput
+  $owner: String
+) {
+  onDeleteSong(filter: $filter, owner: $owner) {
     id
     title
     artist
     duration
     releaseDate
-    username
+    fileUrl
     createdAt
     updatedAt
+    owner
     __typename
   }
 }

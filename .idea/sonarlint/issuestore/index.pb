@@ -73,8 +73,6 @@ _
 /amplify/backend/api/musifyb/transform.conf.json,9\4\94be70c74080593d9939528a4968a124e66d4b6c
 Å
 Q.idea/sonarlint/securityhotspotstore/7/0/7030d0b2f71b999ff89a343de08c414af32fc93a,9\a\9ab775a45cd57b8b48016a1df33230d8b5c74c21
-\
-,.idea/inspectionProfiles/Project_Default.xml,4\9\496a238a6afa168dbaf6efd37bb459331589579c
 Å
 Q.idea/sonarlint/securityhotspotstore/5/a/5ab44fe33ca96299f51ad4778a73e425b92bf439,d\3\d336efa82b4f1256cc207997c16459382c35ffdc
 d
@@ -192,8 +190,6 @@ Q.idea/sonarlint/securityhotspotstore/d/8/d8bca07a763bc213fb81fb1ccec6943dd445f0
 w
 G.idea/sonarlint/issuestore/4/5/451835fd3b46d7f878203d27b13d78a0fcf9f4b8,d\b\db76a25e2168a40bdd73aad8c0c2a7e3e11dffff
 w
-G.idea/sonarlint/issuestore/4/9/496a238a6afa168dbaf6efd37bb459331589579c,6\e\6e9644ddf83ab52f39902ecdbfdf4118285ac40c
-w
 G.idea/sonarlint/issuestore/4/1/41e954e1f328387598e84f43def8b3de30d24f87,d\7\d7c1fa0b3f0a7d44547faad8d953eb942307ca80
 Å
 Q.idea/sonarlint/securityhotspotstore/b/9/b983a67b35007a68eab445a82eede9289b121d17,0\f\0f940723a2495333e11e47e554a58b2e81a5e8ea
@@ -239,8 +235,6 @@ Q.idea/sonarlint/securityhotspotstore/7/1/71aea6ec305f2860962ac6d88a0040fbac346d
 Q.idea/sonarlint/securityhotspotstore/7/b/7bd98405a267efa682de7528ede17333c4838831,5\6\569ed6e6e899f6de702f39f5c2b60b13fd21dde3
 Å
 Q.idea/sonarlint/securityhotspotstore/4/5/451835fd3b46d7f878203d27b13d78a0fcf9f4b8,3\9\3938258e492012c0cf0c83fe07b6dfa4c48fdcc7
-Å
-Q.idea/sonarlint/securityhotspotstore/4/9/496a238a6afa168dbaf6efd37bb459331589579c,b\0\b0bb0a26d88d16d2e82502fe47e034e248a527a2
 Å
 Q.idea/sonarlint/securityhotspotstore/4/1/41e954e1f328387598e84f43def8b3de30d24f87,9\8\98444e7d5aee02761860d19aff127eda4b77226a
 Å
@@ -337,3 +331,19 @@ w
 G.idea/sonarlint/issuestore/b/9/b983a67b35007a68eab445a82eede9289b121d17,6\8\68b041afa8f85535012e8f52835640af644c7365
 w
 G.idea/sonarlint/issuestore/b/a/ba80f78c94f19a58e759168a9110548c126520bd,1\a\1a1adf572fc5a517c34d778ce7488fa9311cff99
+=
+tsconfig.json,6\1\61ebb9fd6e8cf9082658121d5d81e297791dacd0
+T
+$src/components/CarouselComponent.tsx,d\0\d03fc4e5f39d14f412573b5a11b3948f6d675e86
+P
+ src/components/Authenticator.tsx,a\b\ab7bfef9b4588de3bec2b81c245419076ef4f631
+B
+src/aws-exports.js,c\c\cc0eb977ec1eebe83df6b3f695b6e63edd33d886
+K
+src/screens/SongManager.tsx,7\e\7ef90a8f64c34dce86ab8ce1e4e09b01afccff2c
+I
+src/components/Navbar.tsx,d\b\dbf6f648b7a7ab0750c83f8a1ea7790c0c7e10cf
+M
+src/amplifyconfiguration.json,6\5\6558409317286f3df5c34362c3f450d0ed3e08dd
+`
+0amplify/backend/api/musifyb/build/schema.graphql,1\9\196093ecdf4b9577a44009f415ae358cc3bbda0a

@@ -15,9 +15,10 @@ export const getSong = /* GraphQL */ `query GetSong($id: ID!) {
     artist
     duration
     releaseDate
-    username
+    fileUrl
     createdAt
     updatedAt
+    owner
     __typename
   }
 }
@@ -34,9 +35,10 @@ export const listSongs = /* GraphQL */ `query ListSongs(
       artist
       duration
       releaseDate
-      username
+      fileUrl
       createdAt
       updatedAt
+      owner
       __typename
     }
     nextToken

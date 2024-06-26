@@ -8,7 +8,7 @@ export type CreateSongInput = {
   artist: string,
   duration: number,
   releaseDate: string,
-  username: string,
+  fileUrl: string,
 };
 
 export type ModelSongConditionInput = {
@@ -16,12 +16,13 @@ export type ModelSongConditionInput = {
   artist?: ModelStringInput | null,
   duration?: ModelIntInput | null,
   releaseDate?: ModelStringInput | null,
-  username?: ModelStringInput | null,
+  fileUrl?: ModelStringInput | null,
   and?: Array< ModelSongConditionInput | null > | null,
   or?: Array< ModelSongConditionInput | null > | null,
   not?: ModelSongConditionInput | null,
   createdAt?: ModelStringInput | null,
   updatedAt?: ModelStringInput | null,
+  owner?: ModelStringInput | null,
 };
 
 export type ModelStringInput = {
@@ -83,9 +84,10 @@ export type Song = {
   artist: string,
   duration: number,
   releaseDate: string,
-  username: string,
+  fileUrl: string,
   createdAt: string,
   updatedAt: string,
+  owner?: string | null,
 };
 
 export type UpdateSongInput = {
@@ -94,7 +96,7 @@ export type UpdateSongInput = {
   artist?: string | null,
   duration?: number | null,
   releaseDate?: string | null,
-  username?: string | null,
+  fileUrl?: string | null,
 };
 
 export type DeleteSongInput = {
@@ -107,12 +109,13 @@ export type ModelSongFilterInput = {
   artist?: ModelStringInput | null,
   duration?: ModelIntInput | null,
   releaseDate?: ModelStringInput | null,
-  username?: ModelStringInput | null,
+  fileUrl?: ModelStringInput | null,
   createdAt?: ModelStringInput | null,
   updatedAt?: ModelStringInput | null,
   and?: Array< ModelSongFilterInput | null > | null,
   or?: Array< ModelSongFilterInput | null > | null,
   not?: ModelSongFilterInput | null,
+  owner?: ModelStringInput | null,
 };
 
 export type ModelIDInput = {
@@ -143,11 +146,12 @@ export type ModelSubscriptionSongFilterInput = {
   artist?: ModelSubscriptionStringInput | null,
   duration?: ModelSubscriptionIntInput | null,
   releaseDate?: ModelSubscriptionStringInput | null,
-  username?: ModelSubscriptionStringInput | null,
+  fileUrl?: ModelSubscriptionStringInput | null,
   createdAt?: ModelSubscriptionStringInput | null,
   updatedAt?: ModelSubscriptionStringInput | null,
   and?: Array< ModelSubscriptionSongFilterInput | null > | null,
   or?: Array< ModelSubscriptionSongFilterInput | null > | null,
+  owner?: ModelStringInput | null,
 };
 
 export type ModelSubscriptionIDInput = {
@@ -205,9 +209,10 @@ export type CreateSongMutation = {
     artist: string,
     duration: number,
     releaseDate: string,
-    username: string,
+    fileUrl: string,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };
 
@@ -224,9 +229,10 @@ export type UpdateSongMutation = {
     artist: string,
     duration: number,
     releaseDate: string,
-    username: string,
+    fileUrl: string,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };
 
@@ -243,9 +249,10 @@ export type DeleteSongMutation = {
     artist: string,
     duration: number,
     releaseDate: string,
-    username: string,
+    fileUrl: string,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };
 
@@ -261,9 +268,10 @@ export type GetSongQuery = {
     artist: string,
     duration: number,
     releaseDate: string,
-    username: string,
+    fileUrl: string,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };
 
@@ -283,9 +291,10 @@ export type ListSongsQuery = {
       artist: string,
       duration: number,
       releaseDate: string,
-      username: string,
+      fileUrl: string,
       createdAt: string,
       updatedAt: string,
+      owner?: string | null,
     } | null >,
     nextToken?: string | null,
   } | null,
@@ -293,6 +302,7 @@ export type ListSongsQuery = {
 
 export type OnCreateSongSubscriptionVariables = {
   filter?: ModelSubscriptionSongFilterInput | null,
+  owner?: string | null,
 };
 
 export type OnCreateSongSubscription = {
@@ -303,14 +313,16 @@ export type OnCreateSongSubscription = {
     artist: string,
     duration: number,
     releaseDate: string,
-    username: string,
+    fileUrl: string,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };
 
 export type OnUpdateSongSubscriptionVariables = {
   filter?: ModelSubscriptionSongFilterInput | null,
+  owner?: string | null,
 };
 
 export type OnUpdateSongSubscription = {
@@ -321,14 +333,16 @@ export type OnUpdateSongSubscription = {
     artist: string,
     duration: number,
     releaseDate: string,
-    username: string,
+    fileUrl: string,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };
 
 export type OnDeleteSongSubscriptionVariables = {
   filter?: ModelSubscriptionSongFilterInput | null,
+  owner?: string | null,
 };
 
 export type OnDeleteSongSubscription = {
@@ -339,8 +353,9 @@ export type OnDeleteSongSubscription = {
     artist: string,
     duration: number,
     releaseDate: string,
-    username: string,
+    fileUrl: string,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };

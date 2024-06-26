@@ -32,7 +32,7 @@ exports.song_detail = asyncHandler(async (req, res, next) => {
     releaseDate
     title
     createdAt
-    username
+    fileUrl
   }
 }`,
         "getSong",
@@ -46,14 +46,14 @@ exports.song_detail = asyncHandler(async (req, res, next) => {
  //Handle message create on POST.
 
 exports.song_create = asyncHandler(async (req, res, next) => {
-    await executeQuery(`mutation CreateSong($title: String!, $artist: String!, $duration: Int!, $releaseDate: AWSDateTime!, $username: String!) {
-      createSong(input: {title: $title, artist: $artist, duration: $duration, releaseDate: $releaseDate, username: $username}) {
+    await executeQuery(`mutation CreateSong($title: String!, $artist: String!, $duration: Int!, $releaseDate: AWSDateTime!, $fileUrl: String!) {
+      createSong(input: {title: $title, artist: $artist, duration: $duration, releaseDate: $releaseDate, fileUrl: $fileUrl}) {
         id,
         title,
         artist,
         duration,
         releaseDate,
-        username
+        fileUrl
       }
     }`,  "createSong",
         {
@@ -61,7 +61,7 @@ exports.song_create = asyncHandler(async (req, res, next) => {
             artist: req.body.artist,
             duration: req.body.duration,
             releaseDate: req.body.releaseDate,
-            username: req.body.username
+            fileUrl: req.body.fileUrl
         }, req, res)
 });
 
@@ -93,14 +93,14 @@ exports.song_create = asyncHandler(async (req, res, next) => {
             releaseDate
             title
             updatedAt
-            username
+            fileUrl
     }
   }
 }`,  "listSongs", {}, req, res)
  });
 
 
-exports.message_create = asyncHandler(async (req, res, next) => {
+/*exports.message_create = asyncHandler(async (req, res, next) => {
     await executeQuery(`mutation CreateMessage($input: CreateMessageInput!) {
       createMessage(input: $input) {
         id
@@ -116,53 +116,119 @@ exports.message_create = asyncHandler(async (req, res, next) => {
             input: req.body
         }, req, res)
 });
-//       listMessages {
-//         items {
-//           createdAt
-//           id
-//           message
-//           name
-//           updatedAt
-//           userId1
-//           userId2
-//           username1
-//           username2
-//         }
-//       }
-//     }
-//     `,  "listMessages", {}, req, res)
-// })
+       listMessages {
+         items {
+           createdAt
+           id
+           message
+           name
+           updatedAt
+           userId1
+           userId2
+           username1
+           username2
+         }
+      }
+     }
+     `,  "listMessages", {}, req, res)
+ })
+*/
 
 exports.song_update = asyncHandler(async (req, res, next) => {
-    await executeQuery(
-        `mutation UpdateSong($input: UpdateSongInput!) {
-            updateSong(input: $input) {
-                artist
-                title
-                duration
-                releaseDate
-                username
-            }
-        }`,
-        "updateSong",
-        {
-            input: { id: req.params.id,
-                ...req.body
-            }
-        },
-        req, res
-    );
-})
+    const songId = req.params.id;
+    const owner = req.user.owner;  // Assurez-vous que req.user.username contient le nom d'utilisateur authentifié
+
+    // Query to get the song details
+    const getSongQuery = `
+      query GetSong($id: ID!) {
+        getSong(id: $id) {
+          id
+          fileUrl
+        }
+      }
+    `;
+
+    // Execute the query to get the song details
+    const songData = await executeQuery(getSongQuery, "getSong", { id: songId });
+
+    // Check if the song exists
+    if (!songData || !songData.data || !songData.data.getSong) {
+        return res.status(404).json({ message: 'Song not found' });
+    }
+
+    const song = songData.data.getSong;
+
+    // Check if the authenticated user is the owner of the song
+    if (song.owner !== owner) {
+        return res.status(403).json({ message: 'You are not authorized to update this song' });
+    }
+
+    // Mutation to update the song
+    const updateSongMutation = `
+      mutation UpdateSong($input: UpdateSongInput!) {
+        updateSong(input: $input) {
+          artist
+          title
+          duration
+          releaseDate
+          fileUrl
+        }
+      }
+    `;
+
+    // Execute the mutation to update the song
+    const updateResult = await executeQuery(updateSongMutation, "updateSong", {
+        input: {
+            id: songId,
+            ...req.body
+        }
+    });
+
+    // Return updated song data
+    res.status(200).json({ message: 'Song updated successfully', updatedSong: updateResult.data.updateSong });
+});
 
 exports.song_delete = asyncHandler(async (req, res, next) => {
-    await executeQuery(
-        `mutation DeleteSong($id: ID!){
-          deleteSong(input: {id: $id}) {
-            id
-          }
+    const songId = req.params.id;
+    const owner = req.user.owner;  // Assurez-vous que req.user.username contient le nom d'utilisateur authentifié
+
+    // Query to get the song details
+    const getSongQuery = `
+      query GetSong($id: ID!) {
+        getSong(id: $id) {
+          id
+          fileUrl
         }
-        `,
-        "deleteSong",
-        {id: req.params.id},
-        req, res);
-})
+      }
+    `;
+
+    // Execute the query to get the song details
+    const songData = await executeQuery(getSongQuery, "getSong", { id: songId });
+
+    // Check if the song exists
+    if (!songData || !songData.data || !songData.data.getSong) {
+        return res.status(404).json({ message: 'Song not found' });
+    }
+
+    const song = songData.data.getSong;
+
+    // Check if the authenticated user is the owner of the song
+    if (song.owner !== owner) {
+        return res.status(403).json({ message: 'You are not authorized to delete this song' });
+    }
+
+    // Mutation to delete the song
+    const deleteSongMutation = `
+      mutation DeleteSong($id: ID!) {
+        deleteSong(input: {id: $id}) {
+          id
+        }
+      }
+    `;
+
+    // Execute the mutation to delete the song
+    const deleteResult = await executeQuery(deleteSongMutation, "deleteSong", { id: songId });
+
+    // Return success response
+    res.status(200).json({ message: 'Song deleted successfully', id: deleteResult.data.deleteSong.id });
+});
