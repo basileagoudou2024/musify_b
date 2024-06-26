@@ -143,11 +143,11 @@ export type ModelSubscriptionSongFilterInput = {
   artist?: ModelSubscriptionStringInput | null,
   duration?: ModelSubscriptionIntInput | null,
   releaseDate?: ModelSubscriptionStringInput | null,
-  username?: ModelSubscriptionStringInput | null,
   createdAt?: ModelSubscriptionStringInput | null,
   updatedAt?: ModelSubscriptionStringInput | null,
   and?: Array< ModelSubscriptionSongFilterInput | null > | null,
   or?: Array< ModelSubscriptionSongFilterInput | null > | null,
+  username?: ModelStringInput | null,
 };
 
 export type ModelSubscriptionIDInput = {

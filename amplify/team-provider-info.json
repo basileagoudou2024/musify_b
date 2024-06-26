@@ -18,7 +18,7 @@
       "function": {
         "musifybLambda": {
           "deploymentBucketName": "amplify-musifyb-dev-1137a-deployment",
-          "s3Key": "amplify-builds/musifybLambda-6d34722f746769516836-build.zip"
+          "s3Key": "amplify-builds/musifybLambda-527975364f7041424a76-build.zip"
         }
       },
       "auth": {
